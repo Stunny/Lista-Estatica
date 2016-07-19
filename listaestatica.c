@@ -20,6 +20,8 @@ void LISTAESTATICA_Destruye(Lista l){
 	l.pri = 0; //El primer node sempre sera el fantasma.
 	l.ant = 0;
 
+	free(l); //Realmente solo con esta operacion ya destruyo toda la estructura.
+
 }
 
 int LISTAESTATICA_Consulta(Lista l){
@@ -86,7 +88,29 @@ Lista LISTAESTATICA_Borra(Lista l){
 	int aux = l.ant;
 	Lista li;
 	
-	l.els[l.els[l.ant].sig]
-			
+	l.els[l.els[l.ant].sig].e = NULL;
+	
+	int i = 0;
 
+	foreach(Nodo *n, l.els){ 		//Vuelco todos los elementos en una segunda
+		if(l.els[i].e != NULL){ 	//lista para no tener que desplazar dentro 
+			li.els[i] = l.els[i];	// de la misma.
+			i++;
+		}
+		else {i++;}
+	}
+	
+	free(l);	
+
+	return li;
+
+}
+
+int LISTAESTATICA_Cuantos(Lista l){
+	
+	int j = 0;
+
+	while(l.els[j].sig != -1) j++;
+
+	return j;
 }

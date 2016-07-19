@@ -2,6 +2,7 @@
 #define _LISTAESTATICA_H
 
 #include "listaestatica.c"
+#include <stdlib.h>
 //---constantes---//
 #define TAMANO 50
 //----------------//
